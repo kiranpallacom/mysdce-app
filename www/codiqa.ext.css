@@ -1,0 +1,41 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #aa22ff;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size: 105%;
+}
+
+aside h1 {
+	font-size: 2em; /* pt (Points) are Absolute measurements, which we avoid */
+					/* Instead use Relative measurements, like % or em or en */
+	text-align: center;
+}
+
+aside .ui-btn {		/* The jQM Class .ui-btn is used to target the button */
+	float: right;
+}
+
+.imgWidth {
+	width: 100%;
+}
+
+.divImgWidth {
+	width: 100%;
+	overflow: hidden;
+	border-radius: 5%;
+	border: 2px solid gray;
+	line-height: 0;
+}
+
+
+/* Portrait styles */
+@media screen and (orientation: portrait) {
+	
+}
+
+/* Landscape styles */
+@media screen and (orientation: landscape) {
+	
+}
