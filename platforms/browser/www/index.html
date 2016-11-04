@@ -57,7 +57,7 @@
 			<a href="#about" data-role="button" data-icon="info" data-transition="pop">About</a>
             </div>
             <div class="ui-block-b">
-			
+				<a href="#classes" data-role="button" data-icon="bars" data-transition="slideup">My Classes</a>
             </div>
             <div class="ui-block-a">
 			
@@ -319,11 +319,49 @@
 	</article>
 </section>
 <!-- About Section END -->
+<!-- Class Section Start -->
+<section data-role="page" id="classes">
+	<header data-role="header" data-add-back-btn="true">
+	
+		<h1>My Classes</h1>
+	</header>
+		<article role="main" class="ui-content">
+			<form id="formClass">
+				<label for="fieldCRN">CRN: </label>
+				<input type="text" placeholder="1828J" name="fieldCRN" id="fieldCRN"><br>
+				<label for="fieldName">Name: </label>
+				<input type="text" placeholder="Android I" name="fieldName" id="fieldName"><br>
+				<label for="fieldInst">Instructor: </label>
+				<input type="text" placeholder="Campos" name="fieldInst" id="fieldInst"><br><br>
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<input type="reset" value="Reset" id="btnReset">	
+					</div>
+					<div class="ui-block-b">
+						<input type="button" value="Save Class" id="btnSave">
+					</div>
+					<div class="ui-block-c">
+						<input type="button" value="Show Classes" id="btnShow">	
+					</div>
+				</div>
+			</form>
+			<div id="divShow"></div>
+			<div data-role="popup" class="ui-content" id="popSaved">Class saved!</div>
+			<div data-role="popup" class="ui-content" id="popUpdated">Class updated!</div>
+			<div data-role="popup" class="ui-content" id="popDeleted">Class deleted!</div>
+			<div data-role="popup" class="ui-content" id="popErrorCRN">ERROR: Fill all fields!</div>
+			<div data-role="popup" class="ui-content" id="popErrorDupe">ERROR: Class already saved!</div>
+			<div data-role="popup" class="ui-content" id="popErrorNull">ERROR: Null!</div>
+		</article>
+	
+</section>
+<!-- Class Section END -->
 
   <!-- jQuery and jQuery Mobile -->
   <script src="jquery-1.11.3.min.js"></script>
   <script src="jquery.mobile-1.4.5.min.js"></script>
   <script src="cordova.js"></script>
+  <script src="pouchdb-6.0.7.min.js"></script>
   <!-- Extra Codiqa features -->
   <script src="codiqa.ext.js"></script>
 </body>
