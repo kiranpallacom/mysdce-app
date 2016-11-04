@@ -146,8 +146,8 @@
 		} // END fnShowClasses()
 		
 		function fnShowClassesTable(data) { // Construct a Table based on PouchDB Data
-			var str = "<p><table border='1' id='tableClass'>"; // Build a string of HTML; using a <table>
-			str += "<tr><th>CRN</th><th>Class</th><th>Instructor</th><th>&nbsp;</th></tr>" // A Row in the Table with Headings
+			var str = "<p><table id='tableClass'>"; // Build a string of HTML; using a <table>
+			str += "<tr><th>CRN</th><th>Class</th><th>Instructor</th><th class='thEmpty'>&nbsp;</th></tr>" // A Row in the Table with Headings
 			for(var i = 0; i < data.length; i++) { // For "x" number of times-worth of Data...
 													// Build a row at a time of data
 				str += "<tr><td>"  + data[i].doc._id + 

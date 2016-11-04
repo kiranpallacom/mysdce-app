@@ -84,7 +84,7 @@
 		$elBtnShow.on("click", fnShowClasses);
 		$("#divShow").on("click", "#btnDelete", fnDeleteClass); // First target an element that exists (#divShow), then the dynamic element (#btnDelete)
 		$("#divShow").on("click", ".btnPencil", function(){fnUpdateClassPrep($(this).parent())});  // Run an AnonFunction, passing data of the WHOLE ROW, of the particular pencil clicked on
-		$("#divShow").on("click", "#btnUpdate", fnUpdateClass);
+		$("#divEdit").on("click", "#btnUpdate", fnUpdateClass);
 		$("#divShow").on("click", "#btnNuke", fnNuke);
 		
 		function fnSaveClass() {		// Function to save class data 
@@ -146,8 +146,8 @@
 		} // END fnShowClasses()
 		
 		function fnShowClassesTable(data) { // Construct a Table based on PouchDB Data
-			var str = "<p><table border='1' id='tableClass'>"; // Build a string of HTML; using a <table>
-			str += "<tr><th>CRN</th><th>Class</th><th>Instructor</th><th>&nbsp;</th></tr>" // A Row in the Table with Headings
+			var str = "<p><table id='tableClass'>"; // Build a string of HTML; using a <table>
+			str += "<tr><th>CRN</th><th>Class</th><th>Instructor</th><th class='thEmpty'>&nbsp;</th></tr>" // A Row in the Table with Headings
 			for(var i = 0; i < data.length; i++) { // For "x" number of times-worth of Data...
 													// Build a row at a time of data
 				str += "<tr><td>"  + data[i].doc._id + 
@@ -160,12 +160,9 @@
 													// Dynamically create an <input> and a <button> to delete classes:
 			str += "<input type='text' placeholder='2059H' id='fieldDelete'> <button id='btnDelete'>Delete Class</button>";
 			str += "<hr><hr>";
-			str += "<div id='divTwoCol'>" + 
-				"<div id='divLeftCol'><button id='btnUpdate'>Update Class</button></div>" + 
-				"<div id='divRightCol'><input type='text' placeholder='1234X' disabled id='fieldUpdateCRN'><input type='text' placeholder='Android I' id='fieldUpdateClass'><input type='text' placeholder='Jones' id='fieldUpdateInst'></div>" + 
-				"</div>";
+			
 			str += "<hr><hr><hr>";
-			str += "<button id='btnNuke'>DELETE ALL CLASSES</button>";
+			str += "<a href='#' class='ui-btn ui-corner-all ui-btn-b  ui-shadow' id='btnNuke'>DELETE ALL CLASSES</a>";
 			$elDivShow.html(str);		// Render the string as HTML on-screen
 			$elDivShow.hide().fadeIn(250);
 		} // END fnShowClassesTable()
@@ -203,11 +200,24 @@
 				$tmpClass = thisObj.find("td:eq(1)").text(),// and save to temporary Variables. Again for 2nd Cell
 				$tmpInst = thisObj.find("td:eq(2)").text(); // AGain for 3rd cell
 			
+			var $elDivEdit = $("#divEdit"),
+				$elh1Update = $("#h1Update");
+			
+			var str = "";
+				
+			str += "<div id='divTwoCol'>" + 
+				"<div id='divLeftCol'><button id='btnUpdate'>Update Class</button></div>" + 
+				"<div id='divRightCol'><input type='text' placeholder='1234X' disabled id='fieldUpdateCRN'><input type='text' placeholder='Android I' id='fieldUpdateClass'><input type='text' placeholder='Jones' id='fieldUpdateInst'></div>" + 
+				"</div>";
+			
+			$elh1Update.html("Updating " + $tmpCRN);
+			$elDivEdit.html(str);
 			$("#fieldUpdateCRN").val($tmpCRN);		// Set the on-screen Inputs to the data from the selected Row
 			$("#fieldUpdateClass").val($tmpClass);
 			$("#fieldUpdateInst").val($tmpInst);
-			$("#popUpdateClass").popup();
-			$("#popUpdateClass").popup("open", {"positionTo" : "window", "transition" : "turn"});
+						
+			$("#popClassUpdate").popup();
+			$("#popClassUpdate").popup("open", {"positionTo" : "window", "transition" : "turn"});
 		} // END fnUpdateClassPrep(thisObj)
 		
 		function fnUpdateClass() {
@@ -219,7 +229,7 @@
 				if(error) {
 					alert("Warning! \nThe CRN: " + $updateCRN + " does not exist!");
 				} else {
-					console.log("yes, updated");
+					//console.log("yes, updated");
 					db.put({
 						"_id"   : result._id,
 						"cName" : $updateClass,
@@ -230,8 +240,11 @@
 							console.log(error);
 							alert("ERROR");
 						} else {
-							console.log(result);
+							//console.log(result);
+							$("#popClassUpdate").popup("close");
 							fnShowClasses();
+							$("#popUpdated").popup();
+							$("#popUpdated").popup("open", {"positionTo" : "window", "transition" : "slideUp"});
 						} // END of .put() function callback's if..else
 					}); // END .put() (of new Data)
 				} // END of .get() if..else
