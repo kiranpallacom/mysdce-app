@@ -351,7 +351,19 @@
 			<div data-role="popup" class="ui-content" id="popDeleted">Class deleted!</div>
 			<div data-role="popup" class="ui-content" id="popErrorCRN">ERROR: Fill all fields!</div>
 			<div data-role="popup" class="ui-content" id="popErrorDupe">ERROR: Class already saved!</div>
-			<div data-role="popup" class="ui-content" id="popErrorNull">ERROR: Null!</div>
+			<div data-role="popup" class="ui-content" id="popErrorNull">ERROR: Class doesn't exist!</div>
+			
+			<div data-role="popup" data-dialog="true" id="popClassUpdate">
+				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+				<header data-role="header">
+					<h1 id="h1Update">Update</h1>
+				</header>
+				<article role="main" class="ui-content">
+					<div id="divEdit">
+					
+					</div>
+				</article>
+			</div>
 		</article>
 	
 </section>

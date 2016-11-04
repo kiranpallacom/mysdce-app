@@ -206,6 +206,8 @@
 			$("#fieldUpdateCRN").val($tmpCRN);		// Set the on-screen Inputs to the data from the selected Row
 			$("#fieldUpdateClass").val($tmpClass);
 			$("#fieldUpdateInst").val($tmpInst);
+			$("#popUpdateClass").popup();
+			$("#popUpdateClass").popup("open", {"positionTo" : "window", "transition" : "turn"});
 		} // END fnUpdateClassPrep(thisObj)
 		
 		function fnUpdateClass() {
