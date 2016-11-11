@@ -7,6 +7,30 @@ body {
     font-size: 105%;
 }
 
+@font-face {
+    font-family: 'anagramregular';
+    src: url('fonts/Anagram-webfont.eot');
+    src: url('fonts/Anagram-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Anagram-webfont.woff') format('woff'),
+         url('fonts/Anagram-webfont.ttf') format('truetype'),
+         url('fonts/Anagram-webfont.svg#anagramregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'armwrestlerbold';
+    src: url('fonts/ArmWrestler-webfont.eot');
+    src: url('fonts/ArmWrestler-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ArmWrestler-webfont.woff') format('woff'),
+         url('fonts/ArmWrestler-webfont.ttf') format('truetype'),
+         url('fonts/ArmWrestler-webfont.svg#armwrestlerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 aside h1 {
 	font-size: 2em; /* pt (Points) are Absolute measurements, which we avoid */
 					/* Instead use Relative measurements, like % or em or en */
@@ -59,8 +83,24 @@ aside .ui-btn {		/* The jQM Class .ui-btn is used to target the button */
 	background-color:  rgba(49,165,178,0.2);
 	text-align: center;
 }
+.ui-header .ui-title {
+	margin: 0.15%;
+	font-size: 1.5em;
+	font-family: 'anagramregular';
+}
 
+.ui-content {
+	padding: 0.25em 0.5em 0.25em 0.5em;
+}
 
+.ui-content h2 {
+	margin-top: 0.5em;
+	font-family: 'armwrestlerbold';
+}
+
+.ui-overlay-a {
+	background-color: green;
+}
 
 /* Portrait styles */
 @media screen and (orientation: portrait) {
